@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: caller-service
+server:
+  port: 8090
