@@ -2,6 +2,8 @@ package janggo.practice.calleeservice.notification.controller;
 
 import janggo.practice.calleeservice.notification.dto.NotificationRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,11 +11,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Slf4j
+
 @RestController
 @RequestMapping("/notifications")
 public class NotificationController {
 
+    private final Logger log = LoggerFactory.getLogger(NotificationController.class);
     private final AtomicInteger requestCount = new AtomicInteger(0);
     private final Map<String, Integer> orderNotificationCount = new ConcurrentHashMap<>();
     private volatile boolean shouldFail = false;

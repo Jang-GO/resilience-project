@@ -1,20 +1,23 @@
 package janggo.practice.callerservice.async.service;
 
+import janggo.practice.callerservice.async.controller.AsyncOrderController;
 import janggo.practice.callerservice.async.dto.NotificationRequest;
 import janggo.practice.callerservice.async.dto.OrderCreateRequest;
 import janggo.practice.callerservice.async.dto.OrderCreateResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderService {
 
+    private final Logger log = LoggerFactory.getLogger(OrderService.class);
     private final AsyncNotificationService notificationService;
 
     /**
